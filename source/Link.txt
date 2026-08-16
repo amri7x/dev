@@ -1,0 +1,3 @@
+coolors.co		=> custom color and contrast checker
+fontspace		=> custom font (but need download)
+webp for best animation

@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    text-align: center;
+    color: white ;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#hero-section {
+    background-image: url("src/images/merapi.jpg");
+    background-size: cover;
+    width: 720px;
+    height: 343px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 10px;
+    text-shadow: 0 0 10px black;
+    margin-bottom: 0;
+}
+
+.sub-title {
+    padding: 0 60px;
+}
+
+h3 {
+    margin:0;
+    padding: 39px 0 54px 0;
+    font-size: 1.5rem;
+    -webkit-text-stroke: 1px #000000;
+    paint-order: stroke fill;
+}
+
+#content {
+    margin: 0 auto;
+    width: 720px;
+    height: 378px;
+    background-color: #F1FAEE;
+    color: #1D3557;
+}
+
+.wisata-wrap {
+    display: flex;
+    justify-content: space-evenly ;
+}
+
+.wisata-img {
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 50%;
+}
+
+.guide {
+    margin: 50px auto;
+    background-color: #A8DADC;
+    width: 400px;
+    height: 294px;
+    display: flex;
+    align-items: center;
+}
+
+.guide-img {
+    width: 150px;
+    height: 150px;
+    border: none;
+    border-radius:10px;
+    padding-left: 13px;
+    padding-right: 11px;
+}
