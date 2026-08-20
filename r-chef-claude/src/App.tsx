@@ -1,6 +1,6 @@
 import {
   Header, HeaderData,
-  Form, formData
+  Form, FormData
 } from "./index";
 
 const App = () => (
@@ -8,8 +8,8 @@ const App = () => (
     <Header {...HeaderData} />
     <main>
       <Form 
-        inputData={formData.input}
-        buttonData={formData.button}
+        inputData={FormData.input}
+        buttonData={FormData.button}
       />
     </main>
   </div>

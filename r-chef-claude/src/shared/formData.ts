@@ -11,16 +11,18 @@ export type InputType = ComponentProps<"input"> & {
     "aria-label": string
 }
 
-export const formData = {
+export const FormData = {
     input: {
         type: "text",
         placeholder: "e.g. oregano",
-        "aria-label": "Input the recipies"
+        "aria-label": "Input the recipies",
+        onMouseEnter: () => console.log("This is input ingredient")
     } as InputType,
 
     button: {
         type: "submit",
         label: "Add ingridient",
-        btntext: "+ Add ingridient"
+        btntext: "+ Add ingridient",
+        onMouseEnter: () => console.log("This is button add ingredient")
     } as ButtonType
 }
