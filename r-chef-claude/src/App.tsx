@@ -1,10 +1,18 @@
-import Header from "./components/Header"
-import { HeaderData } from "./shared/appData";
+import {
+  Header, HeaderData,
+  Form, formData
+} from "./index";
 
 const App = () => (
-  <main className="flex flex-col justify-center font-[Inter]">
+  <div className="flex flex-col justify-center font-[Inter]">
     <Header {...HeaderData} />
-  </main>
+    <main>
+      <Form 
+        inputData={formData.input}
+        buttonData={formData.button}
+      />
+    </main>
+  </div>
 )
 
 export default App;
