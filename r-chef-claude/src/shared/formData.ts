@@ -1,28 +1,58 @@
-import type { ComponentProps } from "react"
+import type { ComponentProps } from "react";
 
-export type FormType = ComponentProps<"form"> & {
+export type FormFieldItem = {
+    id: string,
+    label: string,
+    inputProps: ComponentProps<"input">
 }
 
-export type ButtonType = ComponentProps<"button"> & {
-    btntext: string
-}
-export type InputType = ComponentProps<"input"> & {
-    "aria-label": string
+export type FormConfig = {
+    formProps: ComponentProps<"form">,
+    input: FormFieldItem[];
+    submitButton: ComponentProps<"button"> & { btntext:string }
 }
 
-export const FormData = {
-    input: {
-        type: "text",
-        placeholder: "e.g. oregano",
-        "aria-label": "Input the recipies",
-        onSubmit: () => console.log("Form Submited"),
-        onMouseEnter: () => console.log("This is input ingredient")
-    } as InputType,
-
-    button: {
+export const RecipeFormData:FormConfig = {
+    formProps: {
+        onSubmit:(e) => {
+            e.preventDefault()
+            console.log("Form berhasil disubmit!")
+        }
+    },
+    input: [
+        {
+            id: "ingredient-name",
+            label: "Ingredient Name : ",
+            inputProps: {
+                type: "text",
+                name: "name",
+                placeholder: "e.g. oregano",
+                onMouseEnter: (e) => {
+                    e.preventDefault()
+                    console.log("This is ingredient name input field")
+                }
+            }
+        },
+        // {
+        //     id: "ingredient-name",
+        //     label: "Ingredient Name : ",
+        //     inputProps: {
+        //         type: "text",
+        //         name: "name",
+        //         placeholder: "e.g. oregano",
+        //         onMouseEnter: (e) => {
+        //             e.preventDefault()
+        //             console.log("This is ingredient name input field")
+        //         }
+        //     }
+        // },
+    ],
+    submitButton: {
         type: "submit",
-        label: "Add ingredient",
-        btntext: "+ Add ingredient",
-        onMouseEnter: () => console.log("This is button add ingredient")
-    } as ButtonType
+        btntext: "+ Add Ingredient",
+        onMouseEnter: (e) => {
+                    e.preventDefault()
+                    console.log("This is button add ingredient")
+                }
+    }
 }
