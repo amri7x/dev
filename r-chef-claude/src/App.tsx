@@ -2,7 +2,7 @@ import {
   Header, HeaderData,
   Form, RecipeFormData,
   IngredientsOutput, ingredientsData
-} from "./index";
+} from "./utils";
 
 const App = () => (
   <div className="w-[720px] text-sm mx-auto flex flex-col justify-center items-center font-[Inter]">

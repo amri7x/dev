@@ -1,4 +1,4 @@
-import type { HeaderType } from "../shared/headerData";
+import type { HeaderType } from "../types/headerType";
 
 const Header = ({title, ...imgProps}:HeaderType) => (
     <header 

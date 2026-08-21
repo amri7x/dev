@@ -1,4 +1,4 @@
-import type { ingredientType } from "../shared/ingredientsData";
+import type { ingredientType } from "../types/ingredientsType";
 import cn from "../utils"
 
 const IngredientsOutput = ({items, className, ...props}: ingredientType) => (
