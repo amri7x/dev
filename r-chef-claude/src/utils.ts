@@ -5,4 +5,4 @@ const cn = (...inputs: ClassValue[]) => (
     twMerge(clsx(inputs))
 )
 
-export default cn;
+export default cn
