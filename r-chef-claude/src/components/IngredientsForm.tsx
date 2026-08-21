@@ -1,4 +1,4 @@
-import type { FormConfig } from "../shared/formData"
+import type { FormConfig } from "../shared/ingredientsData"
 
 const Form = ({formProps, input, submitButton}: FormConfig) => (
     <>
