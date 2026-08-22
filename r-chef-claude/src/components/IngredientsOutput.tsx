@@ -1,5 +1,5 @@
 import type { ingredientType } from "../types/ingredientsType";
-import cn from "../utils"
+import {cn} from "../utils"
 
 const IngredientsOutput = ({items, className, ...props}: ingredientType) => (
     <section>

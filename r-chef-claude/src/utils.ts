@@ -1,11 +1,10 @@
+//Tools
 import { clsx, type ClassValue} from "clsx"
 import { twMerge } from "tailwind-merge"
 
-const cn = (...inputs: ClassValue[]) => (
+export const cn = (...inputs: ClassValue[]) => (
     twMerge(clsx(inputs))
 )
-
-export default cn
 
 //Deploy Section
 
@@ -15,6 +14,7 @@ export * from "./types/ingredientsType"
 
 //Data
 export * from "./hooks/HeaderData"
+export * from "./hooks/IngredientsData"
 
 //Components
 export { default as Header} from "./components/Header"
