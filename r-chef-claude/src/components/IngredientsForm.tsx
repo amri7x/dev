@@ -1,6 +1,6 @@
 import type { FormConfig } from "../types/ingredientsType"
 
-const Form = ({formProps, input, submitButton}: FormConfig) => (
+export const Form = ({formProps, input, submitButton}: FormConfig) => (
     <>
         <form className="flex flex-col justify-center gap-[11px] mt-[70px]" {...formProps}>
             {input.map(({ id, label, inputProps }) => (
@@ -23,5 +23,3 @@ const Form = ({formProps, input, submitButton}: FormConfig) => (
         </form>
     </>
 )
-
-export default Form;

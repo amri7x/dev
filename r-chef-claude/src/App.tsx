@@ -4,7 +4,7 @@ import {
   IngredientsOutput
 } from "./utils";
 
-const App = () => {
+export const App = () => {
   const { ingredients, recipeFormConfig } = useIngredientsData();
 
   return (
@@ -19,5 +19,3 @@ const App = () => {
   </div>
   )
 }
-
-export default App;

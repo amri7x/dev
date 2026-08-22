@@ -1,4 +1,4 @@
-import type { ComponentProps } from "react";
+import type { ComponentProps } from "react"
 
 export type ingredientType = ComponentProps<"ul"> & {
     items: string[]

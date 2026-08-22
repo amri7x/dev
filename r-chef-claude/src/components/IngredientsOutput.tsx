@@ -1,7 +1,7 @@
 import type { ingredientType } from "../types/ingredientsType";
 import {cn} from "../utils"
 
-const IngredientsOutput = ({items, className, ...props}: ingredientType) => (
+export const IngredientsOutput = ({items, className, ...props}: ingredientType) => (
     <section>
         <h3 className="font-bold text-xl text-[#141413] mt-8 mb-3">Ingredients on hands :</h3>
         <ul className={cn(
@@ -18,5 +18,3 @@ const IngredientsOutput = ({items, className, ...props}: ingredientType) => (
     </section>
     
 )
-
-export default IngredientsOutput;

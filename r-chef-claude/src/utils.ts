@@ -17,6 +17,6 @@ export * from "./hooks/HeaderData"
 export * from "./hooks/IngredientsData"
 
 //Components
-export { default as Header} from "./components/Header"
-export { default as Form } from "./components/IngredientsForm"
-export { default as IngredientsOutput } from "./components/IngredientsOutput"
+export { Header } from "./components/Header"
+export { Form } from "./components/IngredientsForm"
+export { IngredientsOutput } from "./components/IngredientsOutput"

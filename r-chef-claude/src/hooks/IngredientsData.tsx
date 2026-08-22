@@ -1,23 +1,23 @@
 // hooks/IngredientsData.tsx
-import { useState } from "react";
-import type { FormConfig } from "../types/ingredientsType";
+import { useState } from "react"
+import type { FormConfig } from "../types/ingredientsType"
 
 export const useIngredientsData = () => {
-    const [ingredients, setIngredients] = useState<string[]>([]);
+    const [ingredients, setIngredients] = useState<string[]>([])
 
     const recipeFormConfig: FormConfig = {
         formProps: {
             onSubmit: (e) => {
-                e.preventDefault();
-                const formElement = e.currentTarget as HTMLFormElement;
-                const formData = new FormData(formElement);
-                const newIngredient = formData.get("name") as string;
+                e.preventDefault()
+                const formElement = e.currentTarget as HTMLFormElement
+                const formData = new FormData(formElement)
+                const newIngredient = formData.get("name") as string
 
                 if (newIngredient && newIngredient.trim() !== "") {
-                    setIngredients((prev) => [...prev, newIngredient.trim()]);
-                    formElement.reset();
+                    setIngredients((prev) => [...prev, newIngredient.trim()])
+                    formElement.reset()
                 } else {
-                    console.log("Input masih kosong!");
+                    console.log("Input masih kosong!")
                 }
             }
         },
@@ -36,7 +36,7 @@ export const useIngredientsData = () => {
             type: "submit",
             btntext: "+ Add Ingredient",
         }
-    };
+    }
 
-    return { ingredients, recipeFormConfig };
-};
+    return { ingredients, recipeFormConfig }
+}

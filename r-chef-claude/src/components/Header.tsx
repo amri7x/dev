@@ -1,6 +1,6 @@
-import type { HeaderType } from "../types/headerType";
+import type { HeaderType } from "../types/headerType"
 
-const Header = ({title, ...imgProps}:HeaderType) => (
+export const Header = ({title, ...imgProps}:HeaderType) => (
     <header 
     className="gap-[11px] mx-auto px-[16px] py-[24px] flex justify-center items-center w-full h-[111px] shadow-md bg-white">
         <div>
@@ -14,5 +14,3 @@ const Header = ({title, ...imgProps}:HeaderType) => (
         </div>
     </header>
 )
-
-export default Header;
