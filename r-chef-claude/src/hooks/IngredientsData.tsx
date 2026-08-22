@@ -29,7 +29,17 @@ export const useIngredientsData = () => {
                     name: "name",
                     placeholder: "e.g. oregano",
                 }
-            }
+            },
+            // add more form input
+            // {
+            //     id: "sub ingredient",
+            //     label: "Sub Ingredient : ",
+            //     inputProps: {
+            //         type: "text",
+            //         name: "sub",
+            //         placeholder: "e.g. oregano",
+            //     }
+            // },
         ],
         submitButton: {
             type: "submit",
