@@ -10,7 +10,7 @@ export type FormFieldItem = {
     inputProps: ComponentProps<"input">
 }
 
-export type FormConfig = {
+export type FormField = {
     formProps: ComponentProps<"form">,
     input: FormFieldItem[];
     submitButton: ComponentProps<"button"> & { btntext:string }

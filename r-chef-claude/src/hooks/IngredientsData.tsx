@@ -1,11 +1,10 @@
-// hooks/IngredientsData.tsx
 import { useState } from "react"
-import type { FormConfig } from "../types/ingredientsType"
+import type { FormField } from "../types/ingredientsType"
 
 export const useIngredientsData = () => {
     const [ingredients, setIngredients] = useState<string[]>([])
 
-    const recipeFormConfig: FormConfig = {
+    const ingredientsFormField: FormField = {
         formProps: {
             onSubmit: (e) => {
                 e.preventDefault()
@@ -38,5 +37,5 @@ export const useIngredientsData = () => {
         }
     }
 
-    return { ingredients, recipeFormConfig }
+    return { ingredients, ingredientsFormField }
 }

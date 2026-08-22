@@ -1,6 +1,6 @@
-import type { FormConfig } from "../types/ingredientsType"
+import type { FormField } from "../types/ingredientsType"
 
-export const Form = ({formProps, input, submitButton}: FormConfig) => (
+export const Form = ({formProps, input, submitButton}: FormField) => (
     <>
         <form className="flex flex-col justify-center gap-[11px] mt-[70px]" {...formProps}>
             {input.map(({ id, label, inputProps }) => (
