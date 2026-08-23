@@ -6,5 +6,6 @@ export type HeaderType = ComponentProps<"header"> & {
     submitButton: {
         add: ComponentProps<"button"> & { btnText: string}
         subs: ComponentProps<"button"> & { btnText: string}
+        clear: ComponentProps<"button"> & { btnText: string}
     }
 }

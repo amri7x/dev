@@ -35,6 +35,16 @@ export const useHeaderData = () => {
                         return newCounts;
                     });
                 }
+            },
+            clear: {
+                btnText: "clear",
+                onClick: () => {
+                    setCounts((prev) => {
+                        const newCounts = [...prev];
+                        newCounts[index] = 0;
+                        return newCounts;
+                    });
+                }
             }
         }
     }));
