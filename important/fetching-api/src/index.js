@@ -1,27 +1,30 @@
 const containerEl = document.getElementById('app')
 const formEl = document.getElementById('form-input')
+
+const createPostElement = (post) => {
+    const postCard = document.createElement('div')
+    postCard.classList.add('postCard')
+    
+    const postTitle = document.createElement('p')
+    postTitle.classList.add('postTitle')
+    postTitle.textContent = post.title
+    
+    const postBody = document.createElement('p')
+    postBody.classList.add('postBody')
+    postBody.textContent = post.body
+
+    const hrEl = document.createElement('hr')
+
+    postCard.append(postTitle, postBody, hrEl)
+    return postCard
+}
+
 fetch("https://jsonplaceholder.typicode.com/posts")
     .then(res => res.json())
     .then(data => {
         const fragment = document.createDocumentFragment()
         
-        const postsArr = data.slice(0, 5).map(post => {
-            const postCard = document.createElement('div')
-            postCard.classList.add('postCard')
-            
-            const postTitle = document.createElement('p')
-            postTitle.classList.add('postTitle')
-            postTitle.textContent = post.title
-            
-            const postBody = document.createElement('p')
-            postBody.classList.add('postBody')
-            postBody.textContent = post.body
-
-            const hrEl = document.createElement('hr')
-            
-            postCard.append(postTitle, postBody, hrEl)
-            return postCard
-        })
+        const postsArr = data.slice(0, 5).map(post => createPostElement(post))
         fragment.append(...postsArr)
         
         containerEl.appendChild(fragment)
@@ -46,5 +49,8 @@ formEl.addEventListener('submit', (e) => {
 
     fetch('https://jsonplaceholder.typicode.com/posts', postData)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(newPost => {
+            const newPostCard = createPostElement(newPost)
+            containerEl.prepend(newPostCard)
+        })
 })
