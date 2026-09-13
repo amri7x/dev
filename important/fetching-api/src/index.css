@@ -1,11 +1,42 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+.header {
+    display:flex;
+    justify-content: center;
+    background-color: grey;
+    margin: 0 5% 0 5%;
+    padding: 10px 0 10px 0;
 }
 
-.container {
+.form-input{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: start;
+    width: 250px;
+    margin: 2% 5% 0 5%;
+}
+
+.postCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin: 2% 5% 0 5%;
+}
+
+.postTitle {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.postBody {
+    color: black;
+}
+
+hr {
+    border: 1px solid black;
+    width: 100%;
 }

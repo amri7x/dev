@@ -8,7 +8,30 @@
     <title>fetching-api</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div>
+      <h1 class="header">Blog Space</h1>
+      <form id="form-input" class="form-input">
+        <label for="postTitle">Post Title:</label>
+        <input
+          type="text"
+          id="postTitle"
+          name="postTitle"
+          placeholder="Post Title"
+        />
+
+        <label for="postBody">Post Body:</label>
+        <textarea
+          type="text"
+          id="postBody"
+          name="postBody"
+          placeholder="Post Body"
+        ></textarea>
+
+        <button>Add Blog</button>
+
+      </form>
+      <div id="app"></div>
+    </div>
     <script type="module" src="./src/index.js"></script>
   </body>
 </html>
