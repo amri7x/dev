@@ -1,5 +1,26 @@
 const containerEl = document.getElementById('app')
 const formEl = document.getElementById('form-input')
+const headerEl = document.getElementById('header')
+
+const weather = () => (
+    fetch('https://apis.scrimba.com/openweathermap/data/2.5/weather?q=boyolali&units=metric')
+	.then(res => res.json())
+	.then(data => {
+		const cuaca = data.weather.map(cuaca => cuaca.main).join(', ')
+		const kota = data.name
+        return {cuaca, kota}
+		})
+)
+
+const cuaca = document.createElement('p')
+cuaca.classList.add('cuaca-text')
+weather().then(res => {
+    if(res){
+        cuaca.textContent = `[${res.kota}: ${res.cuaca}]`
+    }
+})
+
+headerEl.append(cuaca)
 
 const createPostElement = (post) => {
     const postCard = document.createElement('div')
@@ -24,7 +45,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
     .then(data => {
         const fragment = document.createDocumentFragment()
         
-        const postsArr = data.slice(0, 5).map(post => createPostElement(post))
+        const postsArr = data.slice(0, 5).map(orig => createPostElement(orig))
         fragment.append(...postsArr)
         
         containerEl.appendChild(fragment)
@@ -53,4 +74,5 @@ formEl.addEventListener('submit', (e) => {
             const newPostCard = createPostElement(newPost)
             containerEl.prepend(newPostCard)
         })
+            formEl.reset()
 })
