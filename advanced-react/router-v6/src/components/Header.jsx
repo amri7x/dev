@@ -13,6 +13,7 @@ export const Header = () => {
                 w-100 flex justify-around
                 lg:w-full lg:flex-row lg:justify-end lg:text-3xl
                 ">
+          <Link to="/host">Host</Link>
           <Link to="/about">About</Link>
           <Link to="/vans">Vans</Link>
         </nav>
