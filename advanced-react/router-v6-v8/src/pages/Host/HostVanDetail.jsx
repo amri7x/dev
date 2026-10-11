@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useParams, Outlet, NavLink } from "react-router"
 
-export const HostVanDetail = () => {
+export const HostVanDetailV8 = () => {
     const params = useParams()
     const [hostVanDetail, setHostVanDetail] = useState([])
 
@@ -23,12 +23,23 @@ export const HostVanDetail = () => {
                     </div>
                 </div>
             </section>
-            <nav className="ml-5 flex gap-5">
-                <NavLink to=".">Description</NavLink>
-                <NavLink to="pricing">Pricing</NavLink>
-                <NavLink to="photos">Photos</NavLink>
+            <nav className="
+                    mx-5 flex gap-5
+                    ">
+                <NavLink
+                    end
+                    className={({isActive}) => `px-2 rounded-md ${isActive ? "bg-amber-400" : null}`} 
+                    to=".">Description</NavLink>
+                <NavLink
+                    className={({isActive}) => `px-2 rounded-md ${isActive ? "bg-amber-400" : null}`} 
+                    to="pricing">Pricing</NavLink>
+                <NavLink
+                    className={({isActive}) => `px-2 rounded-md ${isActive ? "bg-amber-400" : null}`} 
+                    to="photos">Photos</NavLink>
             </nav>
-            <Outlet />
+            <div className="mx-5">
+                <Outlet />
+            </div>
         </>
     )
 }

@@ -10,7 +10,7 @@ export const HostLayout = () => {
                 ">
             <NavLink 
                 className={({isActive}) => `px-5 ${isActive ? "bg-amber-600 font-extrabold text-white rounded-l" : "hover:text-red-500"}`}
-                to="/host"
+                to="."
                 end>
                     Dashboard
             </NavLink>
@@ -27,7 +27,7 @@ export const HostLayout = () => {
             <NavLink 
                 className={({isActive}) => `px-5 ${isActive ? "bg-amber-600 font-extrabold text-white rounded-l" : "hover:text-red-500"}`}
                 to="reviews">
-                    Rewviews
+                    Reviews
             </NavLink>
         </nav>
         <Outlet />
