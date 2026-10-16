@@ -21,8 +21,6 @@ export const loader = async () => {
     }
 }
 
-
-
 export const HostVansV8 = () => {
     const { vans } = useLoaderData()
 

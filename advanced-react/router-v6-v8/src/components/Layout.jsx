@@ -15,7 +15,7 @@ export const Layout = () => {
             {isLoading
                 ? (
                     <div>
-                        <img src={loadingImage} />
+                        <p>Loading</p>
                     </div>
                 ) 
                 : (<Outlet />)
