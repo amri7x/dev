@@ -72,6 +72,7 @@ export const AppV8 = () => {
   return(
     <RouterProvider 
         router={router}
+      fallbackElement={<p>Loading apps....</p>}
         hydrateFallbackElement={<p>Loading apps....</p>}
     />
   )

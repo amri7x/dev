@@ -1,5 +1,8 @@
+import { useOutletContext } from "react-router"
+
 export const HostVanDescription = () => {
+    const { vans } = useOutletContext()
     return(
-        <h1>This is HostVan Description</h1>
+        <p>{vans.description}</p>
     )
 }

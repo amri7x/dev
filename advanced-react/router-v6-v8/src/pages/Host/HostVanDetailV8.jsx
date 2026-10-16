@@ -1,4 +1,4 @@
-import { NavLink, Outlet, useLoaderData } from "react-router"
+import { NavLink, Outlet, useLoaderData, Link } from "react-router"
 
 export const loader = async ({params}) => {
     try{
@@ -26,6 +26,18 @@ export const HostVanDetailV8 = () => {
     
     return(
         <>
+            <button className="
+                        w-40 flex mt-5
+                        hover:cursor-pointer hover:text-amber-500
+                        active:scale-95
+                        transition-all duration-150
+                        ">
+                <Link 
+                    to=".."
+                    relative="path"
+                    >Back to all vans
+                </Link>
+            </button>
             <section className="m-5">
                 <div className="flex gap-5">
                     <img src={vans?.imageUrl} width={200} />
@@ -41,17 +53,17 @@ export const HostVanDetailV8 = () => {
                     ">
                 <NavLink
                     end
-                    className={({isActive}) => `px-2 rounded-md ${isActive ? "bg-amber-400" : ""}`} 
+                    className={({isActive, isPending}) => `px-2 rounded-md ${(isActive || isPending) ? "bg-amber-400" : ""}`} 
                     to=".">Description</NavLink>
                 <NavLink
-                    className={({isActive}) => `px-2 rounded-md ${isActive ? "bg-amber-400" : ""}`} 
+                    className={({isActive, isPending}) => `px-2 rounded-md ${isActive || isPending ? "bg-amber-400" : ""}`} 
                     to="pricing">Pricing</NavLink>
                 <NavLink
-                    className={({isActive}) => `px-2 rounded-md ${isActive ? "bg-amber-400" : ""}`} 
+                    className={({isActive, isPending}) => `px-2 rounded-md ${isActive || isPending ? "bg-amber-400" : ""}`} 
                     to="photos">Photos</NavLink>
             </nav>
             <div className="mx-5">
-                <Outlet />
+                <Outlet context={{ vans }}/>
             </div>
         </>
     )

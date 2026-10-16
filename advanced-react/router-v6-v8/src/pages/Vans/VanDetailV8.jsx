@@ -25,13 +25,6 @@ export const loader = async ({ params }) => {
 
 export const VanDetailV8 = () => {
 
-
-    // React.useEffect(() => {
-    //     fetch(`/api/vans/${params.id}`)
-    //         .then(res => res.json())
-    //         .then(data => setVan(data.vans))
-    // },[params.id])
-
     const { van } = useLoaderData()
 
     return(
