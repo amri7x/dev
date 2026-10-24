@@ -18,7 +18,7 @@ Skill akan mencari konvensi secara dinamis dari repositori aktif. Tidak ada fold
 
 ## Aturan keselamatan
 
-Hanya file yang secara eksplisit disebut sebagai target yang boleh diubah. File referensi gaya, konfigurasi, pengujian, dokumentasi, lockfile, dan file lain tetap hanya-baca kecuali secara terpisah dimasukkan sebagai target. Refactor harus mempertahankan perilaku runtime dan kontrak publik.
+Hanya file yang secara eksplisit disebut sebagai target yang boleh diubah. File referensi gaya, konfigurasi, pengujian, dokumentasi, lockfile, dan file lain tetap hanya-baca kecuali secara terpisah dimasukkan sebagai target. Refactor harus mempertahankan perilaku runtime dan kontrak publik. Characterisation testing mencakup perilaku kode dan, jika terdampak, web/app behavior melalui browser/E2E atau pemeriksaan manual bila memungkinkan. Jangan menyatakan perilaku browser sudah terverifikasi hanya berdasarkan unit test atau pemeriksaan kode.
 
 
 ## Characterisation test

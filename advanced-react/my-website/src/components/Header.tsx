@@ -1,4 +1,14 @@
 import { Link, NavLink } from "react-router"
+import { useEffect, useState } from "react"
+
+const getInitialTheme = () => {
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme === "light" || savedTheme === "dark") return savedTheme
+
+    return window.matchMedia("prefers-color-scheme: dark").matches
+        ? "dark"
+        : "light"
+}
 
 type HeaderProps = {
     title: string
@@ -16,8 +26,20 @@ const navItems: NavItem[] = [
 ]
 
 export const Header = ({title}: HeaderProps) => {
+
+    const [theme, setTheme] = useState(getInitialTheme)
+
+    useEffect(()=>{
+        document.documentElement.dataset.theme = theme
+        localStorage.setItem("theme", theme)
+    },[theme])
+
+    const toggleTheme = () => {
+        setTheme(current => current === "light" ? "dark" : "light")
+    }
+
     return(
-        <header className="w-[98%] flex justify-around bg-amber-300">
+        <header className="w-[98%] flex justify-around">
             <Link 
                 className=""
                 to="/" 
@@ -34,6 +56,15 @@ export const Header = ({title}: HeaderProps) => {
                     ))}
                 </ul>
             </nav>
+
+            <button
+                type="button"
+                onClick={toggleTheme}
+                aria-label={`Ganti mode ${theme === "light" ? "gelap" : "terang"}`}
+            >
+                {theme === "light" ? "Dark Mode" : "Light Mode"}
+            </button>
+
         </header>
     )
 }

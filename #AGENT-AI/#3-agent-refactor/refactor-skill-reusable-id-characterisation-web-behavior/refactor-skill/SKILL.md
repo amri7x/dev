@@ -74,7 +74,24 @@ Sebelum mengedit kode target:
 - Identifikasi perilaku yang perlu dipertahankan, terutama perilaku yang terlihat dari luar: nilai balik, respons API, efek samping, validasi, penanganan error, urutan operasi, dan aturan akses.
 - Gunakan test yang sudah ada jika cakupannya memadai.
 
-**Characterisation test** adalah test yang merekam perilaku aktual sistem yang sudah ada, terutama ketika perilaku tersebut belum terdokumentasi dengan baik. Test ini menjadi pagar pengaman saat struktur internal kode diubah.
+**Characterisation testing** berarti merekam dan memeriksa perilaku aktual sistem yang sudah ada, bukan hanya menguji output fungsi. Cakupannya dapat meliputi unit, integrasi, API, serta perilaku web/aplikasi yang dialami pengguna. Tujuannya adalah membuat pembanding sebelum dan sesudah refactor agar perubahan struktur internal tidak mengubah perilaku yang terlihat dari luar.
+
+#### Periksa web/app behavior jika target memengaruhinya
+
+Untuk target yang berhubungan dengan UI, routing, form, state, API, autentikasi, atau alur pengguna, identifikasi perilaku web/aplikasi yang relevan sebelum mengedit. Pilih pemeriksaan berdasarkan dampak file; jangan memaksakan semua pemeriksaan pada refactor yang tidak relevan.
+
+Contoh hal yang perlu diperiksa jika terdampak:
+
+- Interaksi pengguna: klik tombol, submit form, dropdown, modal, validasi, interaksi keyboard, dan pesan yang terlihat.
+- Status UI: loading, sukses, data kosong, error, dan perubahan tampilan ketika state berubah.
+- Navigasi: perpindahan route, membuka URL langsung atau me-refresh halaman, serta tombol Back/Forward browser jika relevan.
+- Integrasi dan sesi: hasil request API/Firebase, penanganan request gagal, status autentikasi, serta persistensi data jika terlibat.
+- Tampilan responsif atau aksesibilitas dasar jika perubahan target memengaruhi layout atau interaksi tersebut.
+- Browser console dan network request bila relevan untuk mendeteksi error JavaScript atau kegagalan request.
+
+Untuk membuat baseline, prioritaskan automated browser/E2E test yang sudah tersedia dan tool browser yang memang tersedia di lingkungan. Jika tidak tersedia, lakukan pemeriksaan manual sebelum dan sesudah bila memungkinkan, dengan langkah dan hasil yang sama. Catat skenario serta hasilnya dalam laporan tugas; jangan membuat file catatan, screenshot, atau test baru di luar daftar target yang diizinkan.
+
+Unit test dan pemeriksaan kode saja **tidak membuktikan** bahwa interaksi browser, routing, atau tampilan visual tetap sama. Jika browser tidak tersedia, skenario tidak bisa dijalankan, atau lingkungan tidak memadai, laporkan dengan jelas bahwa web/app behavior tersebut belum terverifikasi. Jangan memasang dependensi, menambah konfigurasi, atau membuat test file tanpa izin yang diperlukan. Untuk target yang murni berupa utilitas/logika non-UI, cukup lakukan pemeriksaan yang relevan dengan perilaku target.
 
 Jika cakupan test belum memadai:
 
@@ -125,10 +142,12 @@ Gunakan pemeriksaan yang paling minim dampak:
 
 1. Periksa diff dan pastikan semua path yang berubah termasuk dalam daftar target yang telah disetujui.
 2. Jalankan kembali test yang relevan, termasuk characterisation test baseline, setelah refactor.
-3. Tinjau diff untuk mendeteksi perubahan logika yang tidak disengaja, guard yang terhapus, kondisi yang berubah, penanganan error yang berubah, dan pemformatan yang tidak terkait.
-4. Jalankan pemeriksaan hanya-baca tambahan atau pengujian terarah yang relevan jika memungkinkan.
-5. Jika pengujian atau formatter dapat menulis file, pastikan terlebih dahulu bahwa file di luar target tidak akan berubah.
-6. Periksa kembali status repositori setelah verifikasi.
+3. Jika target memengaruhi web/app behavior, ulangi skenario browser/E2E atau pemeriksaan manual yang sama seperti baseline jika tool dan lingkungan memungkinkan.
+4. Tinjau diff untuk mendeteksi perubahan logika yang tidak disengaja, guard yang terhapus, kondisi yang berubah, penanganan error yang berubah, dan pemformatan yang tidak terkait.
+5. Periksa console dan network request jika relevan dan tersedia.
+6. Jalankan pemeriksaan hanya-baca tambahan atau pengujian terarah yang relevan jika memungkinkan.
+7. Jika pengujian atau formatter dapat menulis file, pastikan terlebih dahulu bahwa file di luar target tidak akan berubah.
+8. Periksa kembali status repositori setelah verifikasi.
 
 Jika pemeriksaan gagal, bedakan kegagalan yang disebabkan refactor dari kegagalan yang sudah ada atau masalah lingkungan. Jangan pernah menyatakan pengujian, lint, pemeriksaan tipe, atau build berhasil jika proses itu tidak benar-benar dijalankan dan sukses.
 
@@ -140,10 +159,12 @@ Ringkas:
 
 - File target yang diubah.
 - Konvensi gaya utama yang diterapkan.
-- Perilaku penting yang dilindungi oleh test.
+- Perilaku kode dan web/app penting yang diperiksa.
 - Test yang dijalankan sebelum dan sesudah refactor beserta hasil sebenarnya.
+- Skenario browser/E2E atau pemeriksaan manual yang dijalankan, jika relevan, beserta hasilnya.
+- Perilaku yang belum bisa diverifikasi, termasuk jika browser/tool tidak tersedia.
 - Test yang belum tersedia atau cakupan yang masih terbatas.
-- Pemeriksaan yang dijalankan beserta hasil sebenarnya.
+- Pemeriksaan lain yang dijalankan beserta hasil sebenarnya.
 - Ambiguitas, risiko, atau tindak lanjut yang masih memerlukan file target tambahan.
 
 Sampaikan secara ringkas. Jangan mengklaim kesetaraan perilaku secara penuh hanya karena pengujian berhasil.

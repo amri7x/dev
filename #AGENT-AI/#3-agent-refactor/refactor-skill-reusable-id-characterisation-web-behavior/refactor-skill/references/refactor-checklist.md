@@ -6,7 +6,9 @@
 - [ ] Hanya file target yang disebutkan pengguna yang boleh ditulis.
 - [ ] Baca instruksi repositori dan contoh gaya yang relevan.
 - [ ] Cari test relevan dan catat hasil baseline jika memungkinkan.
-- [ ] Identifikasi perilaku penting yang perlu dilindungi.
+- [ ] Identifikasi perilaku kode yang penting untuk dilindungi.
+- [ ] Jika target memengaruhi UI/routing/form/state/API/auth, identifikasi web/app behavior yang relevan (interaksi, status UI, navigasi, integrasi, dan lain-lain).
+- [ ] Catat baseline perilaku yang relevan lewat test yang ada, browser/E2E, atau pemeriksaan manual bila memungkinkan.
 - [ ] Jika perlu membuat test baru, minta izin untuk memasukkan path test ke daftar target.
 
 ## Saat mengedit
@@ -19,6 +21,8 @@
 ## Setelah mengedit
 - [ ] Periksa seluruh diff dan pastikan semua perubahan ada dalam daftar target yang disetujui.
 - [ ] Jalankan kembali test relevan dan bandingkan dengan baseline.
+- [ ] Jika web/app behavior terdampak, ulangi skenario browser/E2E atau pemeriksaan manual yang sama bila memungkinkan.
+- [ ] Periksa console dan network request jika relevan dan tersedia.
 - [ ] Tinjau kondisi, validasi, otorisasi, error, efek samping, transaksi, dan pembersihan resource.
 - [ ] Periksa kembali status working tree.
-- [ ] Laporkan pemeriksaan, hasil, serta cakupan test yang belum tersedia secara jujur.
+- [ ] Laporkan dengan jujur perilaku yang sudah diverifikasi dan yang belum, termasuk batasan browser/tool.
